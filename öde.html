@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Ödeme</title>
+    <link rel="stylesheet" href="stil.css">
+    <script defer src="site.js"></script>
+</head>
+<body onload="sepetiGoster()">
+    <header>
+        <h1>Ödeme</h1>
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Ödeme</title>
+    <link rel="stylesheet" href="stil.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Ödeme</h1>
+        <nav>
+            <ul>
+                <li><a href="anasayfa.html">Anasayfa</a></li>
+                <li><a href="urunler.html">Ürünler</a></li>
+                <li><a href="hakkimda.html">Hakkımda</a></li>
+                <li><a href="sepet.html">Sepet</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="odeme-container">
+            <h2>Sepetiniz</h2>
+            <ul id="odeme-sepet"></ul>
+
+            <h2>Banka Seçimi</h2>
+            <form id="odemeForm">
+                <label for="banka">Banka Seçiniz:</label>
+                <select id="banka" required>
+                    <option value="">-- Seçiniz --</option>
+                    <option value="ziraat">Ziraat Bankası</option>
+                    <option value="isbank">İş Bankası</option>
+                    <option value="garanti">Garanti BBVA</option>
+                    <option value="yapikredi">Yapı Kredi</option>
+                </select>
+                <br><br>
+                <button type="submit" class="odeme-buton">Ödemeyi Tamamla</button>
+            </form>
+            <p id="onayMesaji"></p>
+        </section>
+    </main>
+</body>
+</html>
+    </header>
+    <main>
+        <div class="odeme-kapsayici">
+            <h2>Sepetiniz</h2>
+            <ul id="sepetListesi" class="sepet-listesi"></ul>
+            <div class="toplam">Toplam Tutar: ₺<span id="toplamTutar">0.00</span></div>
+            <button class="odeme-buton" onclick="odemeYap()">Ödemeyi Tamamla</button>
+        </div>
+    </main>
+</body>
+</html>

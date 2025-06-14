@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Ödeme</title>
+    <link rel="stylesheet" href="stil.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Ödeme</h1>
+        <nav>
+            <ul>
+                <li><a href="anasayfa.html">Anasayfa</a></li>
+                <li><a href="urunler.html">Ürünler</a></li>
+                <li><a href="hakkimda.html">Hakkımda</a></li>
+                <li><a href="sepet.html">Sepet</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="odeme-container">
+            <h2>Sepetiniz</h2>
+            <ul id="odeme-sepet"></ul>
+
+            <h2>Banka Seçimi</h2>
+            <form id="odemeForm">
+                <label for="banka">Banka Seçiniz:</label>
+                <select id="banka" required>
+                    <option value="">-- Seçiniz --</option>
+                    <option value="ziraat">Ziraat Bankası</option>
+                    <option value="isbank">İş Bankası</option>
+                    <option value="garanti">Garanti BBVA</option>
+                    <option value="yapikredi">Yapı Kredi</option>
+                </select>
+                <br><br>
+                <button type="submit" class="odeme-buton">Ödemeyi Tamamla</button>
+            </form>
+            <p id="onayMesaji"></p>
+        </section>
+    </main>
+    <script>
+    // Bağlantı kontrolü ve sepetin doldurulması
+    document.addEventListener('DOMContentLoaded', () => {
+        const sepet = JSON.parse(localStorage.getItem('sepet')) || [];
+        const odemeSepet = document.getElementById('odeme-sepet');
+        const onayMesaji = document.getElementById('onayMesaji');
+
+        sepet.forEach(urun => {
+            const li = document.createElement('li');
+            li.textContent = `${urun.ad} - ${urun.fiyat} TL`;
+            odemeSepet.appendChild(li);
+        });
+
+        document.getElementById('odemeForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const banka = document.getElementById('banka').value;
+            if (!banka) {
+                alert('Lütfen bir banka seçin.');
+                return;
+            }
+            onayMesaji.textContent = `Ödemeniz başarıyla ${banka.toUpperCase()} ile tamamlandı!`;
+            localStorage.removeItem('sepet');
+        });
+    });
+    </script>
+</body>
+</html>
